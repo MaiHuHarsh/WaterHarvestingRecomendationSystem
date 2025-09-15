@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Harvesting Analysis - Results</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .nav-buttons {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 1px solid #e9ecef;
+            text-align: center;
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 0 10px;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(40, 167, 69, 0.3);
+        }
+
+        .results-container {
+            padding: 40px;
+        }
+
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .summary-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .summary-card h3 {
+            font-size: 2.2em;
+            margin-bottom: 8px;
+        }
+
+        .summary-card p {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 30px;
+            border-left: 5px solid #667eea;
+        }
+
+        .section h2 {
+            color: #1e3c72;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section h2::before {
+            content: "";
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .section h3 {
+            color: #495057;
+            font-size: 1.3em;
+            margin: 20px 0 15px 0;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 8px;
+        }
+
+        .key-value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .key-value {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .key-value .key {
+            font-weight: 600;
+            color: #495057;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .key-value .value {
+            font-size: 1.1em;
+            color: #1e3c72;
+            font-weight: 500;
+        }
+
+        .list-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .list-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .list-item h4 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .list-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list-item li {
+            padding: 5px 0;
+            color: #495057;
+            font-size: 0.95em;
+        }
+
+        .list-item li::before {
+            content: "✓ ";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .json-container {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 25px;
+            border-radius: 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            overflow-x: auto;
+            margin-top: 20px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .json-toggle {
+            background: #495057;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .json-toggle:hover {
+            background: #343a40;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .feasibility-score {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .score-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            font-weight: bold;
+            color: white;
+        }
+
+        .score-excellent { background: linear-gradient(135deg, #28a745 0%, #20c997 100%); }
+        .score-good { background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%); }
+        .score-moderate { background: linear-gradient(135deg, #fd7e14 0%, #dc3545 100%); }
+        .score-poor { background: linear-gradient(135deg, #dc3545 0%, #6f42c1 100%); }
+
+        .alert {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .alert-warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+        }
+
+        .alert-danger {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+
+            .results-container {
+                padding: 20px;
+            }
+
+            .summary-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .key-value-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .list-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌊 Water Harvesting Analysis Results</h1>
+            <p>Comprehensive recommendations for your location</p>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="/" class="nav-btn">🔄 Analyze New Location</a>
+            <button onclick="window.print()" class="nav-btn">📄 Print Results</button>
+            <button onclick="downloadResults()" class="nav-btn">💾 Download JSON</button>
+        </div>
+
+        <div class="results-container">
+            {% if results %}
+                <!-- Summary Cards -->
+                <div class="summary-cards">
+                    <div class="summary-card">
+                        <h3>{{ "{:,}".format(results.harvesting_potential.annual_harvestable_liters|int) }}L</h3>
+                        <p>Annual Harvestable Water</p>
+                    </div>
+                    <div class="summary-card">
+                        <h3>₹{{ "{:,}".format(results.cost_estimation.total_cost|int) }}</h3>
+                        <p>Total Implementation Cost</p>
+                    </div>
+                    <div class="summary-card">
+                        <h3>{{ results.feasibility_analysis.total_score }}/100</h3>
+                        <p>Feasibility Score</p>
+                    </div>
+                    <div class="summary-card">
+                        <h3>{{ results.cost_benefit_analysis.financial_metrics.simple_payback_period_years }}yrs</h3>
+                        <p>Payback Period</p>
+                    </div>
+                </div>
+
+                <!-- Feasibility Analysis -->
+                <div class="section">
+                    <h2>🎯 Feasibility Analysis</h2>
+                    <div class="feasibility-score">
+                        <div class="score-circle {% if results.feasibility_analysis.total_score >= 80 %}score-excellent{% elif results.feasibility_analysis.total_score >= 65 %}score-good{% elif results.feasibility_analysis.total_score >= 50 %}score-moderate{% else %}score-poor{% endif %}">
+                            {{ results.feasibility_analysis.total_score }}/100
+                        </div>
+                        <h3>{{ results.feasibility_analysis.feasibility_level }}</h3>
+                        <p>{{ results.feasibility_analysis.recommendation }}</p>
+                    </div>
+
+                    <div class="key-value-grid">
+                        <div class="key-value">
+                            <div class="key">Rainfall Score</div>
+                            <div class="value">{{ results.feasibility_analysis.score_breakdown.rainfall }}/25</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Roof Area Score</div>
+                            <div class="value">{{ results.feasibility_analysis.score_breakdown.roof_area }}/25</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Soil Suitability Score</div>
+                            <div class="value">{{ results.feasibility_analysis.score_breakdown.soil_suitability }}/25</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Water Demand Score</div>
+                            <div class="value">{{ results.feasibility_analysis.score_breakdown.water_demand }}/25</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rainfall and Climate Data -->
+                <div class="section">
+                    <h2>🌧️ Rainfall & Climate Analysis</h2>
+                    <div class="key-value-grid">
+                        <div class="key-value">
+                            <div class="key">Annual Rainfall</div>
+                            <div class="value">{{ results.rainfall_data.annual_rainfall_mm }} mm</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Peak Months</div>
+                            <div class="value">{{ results.rainfall_data.peak_months|join(", ")|title }}</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Collection Season</div>
+                            <div class="value">{{ results.rainfall_data.collection_window.collection_season_type }}</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Pattern Type</div>
+                            <div class="value">{{ results.rainfall_data.monsoon_characteristics.pattern_type }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Runoff Capacity -->
+                <div class="section">
+                    <h2>💧 Runoff Generation Capacity</h2>
+                    <div class="key-value-grid">
+                        <div class="key-value">
+                            <div class="key">Total Annual Runoff</div>
+                            <div class="value">{{ "{:,}".format(results.runoff_capacity.annual_runoff_capacity.total_liters|int) }} L</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Peak Monthly Runoff</div>
+                            <div class="value">{{ "{:,}".format(results.runoff_capacity.peak_runoff.peak_monthly_liters|int) }} L</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Peak Month</div>
+                            <div class="value">{{ results.runoff_capacity.peak_runoff.peak_month|title }}</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Runoff Coefficient</div>
+                            <div class="value">{{ results.runoff_capacity.runoff_coefficient }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Groundwater & Aquifer -->
+                <div class="section">
+                    <h2>🏔️ Groundwater & Aquifer Information</h2>
+                    <div class="key-value-grid">
+                        <div class="key-value">
+                            <div class="key">Groundwater Depth</div>
+                            <div class="value">{{ results.groundwater_and_aquifer.depth_to_groundwater }}</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Principal Aquifer</div>
+                            <div class="value">{{ results.groundwater_and_aquifer.principal_aquifer_info.principal_aquifer }}</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Aquifer Type</div>
+                            <div class="value">{{ results.groundwater_and_aquifer.principal_aquifer_info.aquifer_type }}</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Recharge Potential</div>
+                            <div class="value">{{ results.groundwater_and_aquifer.recharge_potential }}</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Water Quality</div>
+                            <div class="value">{{ results.groundwater_and_aquifer.principal_aquifer_info.water_quality }}</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Yield Characteristics</div>
+                            <div class="value">{{ results.groundwater_and_aquifer.principal_aquifer_info.yield_characteristics }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System Recommendations -->
+                <div class="section">
+                    <h2>🔧 System Recommendations</h2>
+                    <h3>Primary Recommendation</h3>
+                    <div class="key-value-grid">
+                        <div class="key-value">
+                            <div class="key">System Type</div>
+                            <div class="value">{{ results.system_recommendations.primary_recommendation.system_type }}</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Tank Capacity</div>
+                            <div class="value">{{ "{:,}".format(results.system_recommendations.primary_recommendation.tank_capacity_liters|int) }} L</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Expected Performance</div>
+                            <div class="value">{{ results.system_recommendations.primary_recommendation.expected_performance }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recharge Structure Designs -->
+                <div class="section">
+                    <h2>🔨 Recharge Structure Designs</h2>
+
+                    <h3>Recharge Pits</h3>
+                    <div class="key-value-grid">
+                        <div class="key-value">
+                            <div class="key">Recommended Number</div>
+                            <div class="value">{{ results.recharge_structure_designs.recharge_pits.number_recommended }}</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Dimensions per Pit</div>
+                            <div class="value">{{ results.recharge_structure_designs.recharge_pits.individual_pit_specifications.length }} × {{ results.recharge_structure_designs.recharge_pits.individual_pit_specifications.width }} × {{ results.recharge_structure_designs.recharge_pits.individual_pit_specifications.depth }}</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Total Construction Cost</div>
+                            <div class="value">₹{{ "{:,}".format(results.recharge_structure_designs.recharge_pits.construction_cost|int) }}</div>
+                        </div>
+                    </div>
+
+                    <h3>Recharge Trenches</h3>
+                    <div class="key-value-grid">
+                        <div class="key-value">
+                            <div class="key">Total Length</div>
+                            <div class="value">{{ results.recharge_structure_designs.recharge_trenches.specifications.total_length }}</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Dimensions</div>
+                            <div class="value">{{ results.recharge_structure_designs.recharge_trenches.specifications.width }} wide × {{ results.recharge_structure_designs.recharge_trenches.specifications.depth }} deep</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Construction Cost</div>
+                            <div class="value">₹{{ "{:,}".format(results.recharge_structure_designs.recharge_trenches.construction_cost|int) }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cost-Benefit Analysis -->
+                <div class="section">
+                    <h2>💰 Cost-Benefit Analysis</h2>
+                    <div class="key-value-grid">
+                        <div class="key-value">
+                            <div class="key">Initial Investment</div>
+                            <div class="value">₹{{ "{:,}".format(results.cost_benefit_analysis.financial_metrics.initial_investment|int) }}</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Annual Savings</div>
+                            <div class="value">₹{{ "{:,}".format(results.cost_benefit_analysis.financial_metrics.annual_cost_savings|int) }}</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Payback Period</div>
+                            <div class="value">{{ results.cost_benefit_analysis.financial_metrics.simple_payback_period_years }} years</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Net Present Value (20 years)</div>
+                            <div class="value">₹{{ "{:,}".format(results.cost_benefit_analysis.financial_metrics.net_present_value_20_years|int) }}</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Benefit-Cost Ratio</div>
+                            <div class="value">{{ results.cost_benefit_analysis.financial_metrics.benefit_cost_ratio }}</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Risk Level</div>
+                            <div class="value">{{ results.cost_benefit_analysis.risk_assessment.risk_level }}</div>
+                        </div>
+                    </div>
+
+                    <h3>Non-Financial Benefits</h3>
+                    <div class="key-value-grid">
+                        <div class="key-value">
+                            <div class="key">Annual Groundwater Recharge</div>
+                            <div class="value">{{ results.cost_benefit_analysis.non_financial_benefits.groundwater_recharge_benefit }}</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">CO₂ Savings</div>
+                            <div class="value">{{ results.environmental_impact.positive_impacts.carbon_footprint_reduction.annual_co2_savings_kg }} kg/year</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Raw JSON Data -->
+                <div class="section">
+                    <h2>📋 Complete API Response</h2>
+                    <button class="json-toggle" onclick="toggleJson()">Show/Hide JSON Data</button>
+                    <div class="json-container hidden" id="jsonData">
+                        <pre>{{ results_json }}</pre>
+                    </div>
+                </div>
+
+            {% else %}
+                <div class="alert alert-danger">
+                    <strong>Error:</strong> No results data available. Please go back and submit the form again.
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        function toggleJson() {
+            const jsonData = document.getElementById('jsonData');
+            jsonData.classList.toggle('hidden');
+        }
+
+        function downloadResults() {
+            {% if results %}
+            const data = {{ results_json|safe }};
+            const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'water_harvesting_analysis_results.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            {% endif %}
+        }
+    </script>
+</body>
+</html>

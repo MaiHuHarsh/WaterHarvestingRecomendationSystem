@@ -1,7 +1,7 @@
 import requests, json
 
 data = {
-    "location": {"lat": 28.6139, "lng": 77.2090},
+    "location": {"lat": 28.6139, "lng": 79.2090},
     "property": {"roof_area_sqft": 100, "roof_material": "concrete"},
     "usage": {"household_size": 4, "daily_consumption_liters": 600},
     "preferences": {"budget_range": "75000-150000", "system_type": "standard"}

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Harvesting Analysis - Input Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .form-container {
+            padding: 40px;
+        }
+
+        .form-section {
+            margin-bottom: 35px;
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+        }
+
+        .form-section h3 {
+            color: #1e3c72;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-section h3::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: #667eea;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 0.95em;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+            background: #fafbfc;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .input-suffix {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            font-size: 14px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .info-box {
+            background: #e8f2ff;
+            border: 1px solid #b8daff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #0056b3;
+        }
+
+        .info-box::before {
+            content: "ℹ️ ";
+            margin-right: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+
+            .form-container {
+                padding: 20px;
+            }
+
+            .form-row {
+                flex-direction: column;
+            }
+
+            .form-row .form-group {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌊 Water Harvesting Analysis</h1>
+            <p>Get personalized recommendations for your rainwater harvesting system</p>
+        </div>
+
+        <div class="form-container">
+            <form action="/analyze" method="POST">
+
+                <!-- Location Section -->
+                <div class="form-section">
+                    <h3>📍 Location Information</h3>
+                    <div class="info-box">
+                        Enter coordinates for accurate analysis. You can use Google Maps to find your coordinates.
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="latitude">Latitude *</label>
+                            <input type="number" id="latitude" name="latitude" step="0.000001" placeholder="e.g., 28.6139" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="longitude">Longitude *</label>
+                            <input type="number" id="longitude" name="longitude" step="0.000001" placeholder="e.g., 77.2090" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address (Optional)</label>
+                        <input type="text" id="address" name="address" placeholder="Enter your full address">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="region_type">Region Type</label>
+                        <select id="region_type" name="region_type">
+                            <option value="urban">Urban</option>
+                            <option value="suburban">Suburban</option>
+                            <option value="rural">Rural</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Property Details Section -->
+                <div class="form-section">
+                    <h3>🏠 Property Details</h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="property_type">Property Type</label>
+                            <select id="property_type" name="property_type">
+                                <option value="residential">Residential</option>
+                                <option value="commercial">Commercial</option>
+                                <option value="industrial">Industrial</option>
+                                <option value="agricultural">Agricultural</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="floors">Number of Floors</label>
+                            <select id="floors" name="floors">
+                                <option value="1">1 Floor</option>
+                                <option value="2" selected>2 Floors</option>
+                                <option value="3">3 Floors</option>
+                                <option value="4">4 Floors</option>
+                                <option value="5+">5+ Floors</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="roof_area_sqft">Roof Area *</label>
+                            <div class="input-group">
+                                <input type="number" id="roof_area_sqft" name="roof_area_sqft" required min="100" placeholder="1200">
+                                <span class="input-suffix">sq ft</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="plot_area_sqft">Total Plot Area</label>
+                            <div class="input-group">
+                                <input type="number" id="plot_area_sqft" name="plot_area_sqft" placeholder="2400">
+                                <span class="input-suffix">sq ft</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="roof_material">Roof Material</label>
+                        <select id="roof_material" name="roof_material">
+                            <option value="concrete" selected>Concrete/RCC</option>
+                            <option value="metal">Metal Sheets</option>
+                            <option value="tile">Clay/Concrete Tiles</option>
+                            <option value="asbestos">Asbestos Sheets</option>
+                            <option value="thatch">Thatch/Traditional</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Water Usage Section -->
+                <div class="form-section">
+                    <h3>💧 Water Usage Patterns</h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="household_size">Household Size *</label>
+                            <input type="number" id="household_size" name="household_size" required min="1" max="20" value="4" placeholder="4">
+                        </div>
+                        <div class="form-group">
+                            <label for="daily_consumption">Daily Water Consumption</label>
+                            <div class="input-group">
+                                <input type="number" id="daily_consumption" name="daily_consumption" placeholder="600" step="50">
+                                <span class="input-suffix">liters</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Current Water Sources</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="municipal" name="current_sources" value="municipal" checked>
+                                <label for="municipal">Municipal Supply</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="borewell" name="current_sources" value="borewell">
+                                <label for="borewell">Borewell</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tanker" name="current_sources" value="tanker">
+                                <label for="tanker">Water Tanker</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Intended Use for Harvested Water</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="drinking" name="intended_use" value="drinking">
+                                <label for="drinking">Drinking (after treatment)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="toilet_flushing" name="intended_use" value="toilet_flushing" checked>
+                                <label for="toilet_flushing">Toilet Flushing</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="gardening" name="intended_use" value="gardening" checked>
+                                <label for="gardening">Gardening</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preferences Section -->
+                <div class="form-section">
+                    <h3>⚙️ System Preferences</h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="budget_range">Budget Range</label>
+                            <select id="budget_range" name="budget_range">
+                                <option value="25000-50000">₹25,000 - ₹50,000</option>
+                                <option value="50000-100000">₹50,000 - ₹1,00,000</option>
+                                <option value="75000-150000" selected>₹75,000 - ₹1,50,000</option>
+                                <option value="100000-200000">₹1,00,000 - ₹2,00,000</option>
+                                <option value="150000-300000">₹1,50,000 - ₹3,00,000</option>
+                                <option value="300000+">Above ₹3,00,000</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="system_type">System Quality</label>
+                            <select id="system_type" name="system_type">
+                                <option value="basic">Basic System</option>
+                                <option value="standard" selected>Standard System</option>
+                                <option value="advanced">Advanced System</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="priority">Primary Priority</label>
+                        <select id="priority" name="priority">
+                            <option value="cost_savings" selected>Cost Savings</option>
+                            <option value="water_security">Water Security</option>
+                            <option value="groundwater_recharge">Groundwater Recharge</option>
+                            <option value="flood_mitigation">Flood Mitigation</option>
+                            <option value="environmental_benefit">Environmental Benefit</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    🔍 Analyze Water Harvesting Potential
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Auto-calculate daily consumption based on household size
+        document.getElementById('household_size').addEventListener('change', function() {
+            const size = parseInt(this.value) || 4;
+            const consumption = size * 150; // 150L per person per day
+            document.getElementById('daily_consumption').value = consumption;
+        });
+
+        // Auto-calculate plot area based on roof area
+        document.getElementById('roof_area_sqft').addEventListener('change', function() {
+            const roof = parseInt(this.value) || 0;
+            const plotField = document.getElementById('plot_area_sqft');
+            if (roof > 0 && !plotField.value) {
+                plotField.value = Math.round(roof * 1.8); // Assume plot is 1.8x roof area
+            }
+        });
+    </script>
+</body>
+</html>
