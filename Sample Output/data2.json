@@ -1,0 +1,631 @@
+{
+    "api_version": "2.0",
+    "cost_benefit_analysis": {
+        "financial_metrics": {
+            "annual_cost_savings": 53.0,
+            "benefit_cost_ratio": 0.01,
+            "initial_investment": 336281.0,
+            "internal_rate_of_return_percent": 0.0,
+            "net_present_value_20_years": -333258.0,
+            "simple_payback_period_years": 6344.9
+        },
+        "non_financial_benefits": {
+            "environmental_benefits": [
+                "Reduced strain on municipal water supply",
+                "Lower carbon footprint (reduced pumping)",
+                "Enhanced local groundwater levels",
+                "Reduced soil erosion and surface runoff"
+            ],
+            "flood_mitigation_benefit": "Reduced surface runoff and urban flooding",
+            "groundwater_recharge_benefit": "1510.0 liters/year",
+            "water_security_value_inr": 10070.0
+        },
+        "risk_assessment": {
+            "mitigation_strategies": [
+                "Apply for government subsidies and incentives",
+                "Consider phased implementation approach",
+                "Implement hybrid storage + recharge system",
+                "Regular maintenance to ensure optimal performance"
+            ],
+            "risk_factors": [
+                "Long payback period - consider subsidies",
+                "High initial investment - explore phased implementation"
+            ],
+            "risk_level": "Medium"
+        },
+        "sensitivity_analysis": {
+            "optimistic_scenario": {
+                "condition": "25% higher water savings",
+                "npv_inr": -466561.0,
+                "payback_period_years": 5075.9
+            },
+            "pessimistic_scenario": {
+                "condition": "25% lower water savings",
+                "npv_inr": -199955.0,
+                "payback_period_years": 8459.9
+            }
+        }
+    },
+    "cost_estimation": {
+        "contingency": 30571.0,
+        "filtration_cost": 25000,
+        "installation_cost": 20000,
+        "pump_cost": 12000,
+        "tank_cost": 248710,
+        "total_cost": 336281.0
+    },
+    "environmental_impact": {
+        "ecosystem_benefits": [
+            "Enhanced local microclimate",
+            "Reduced heat island effect",
+            "Support for local vegetation",
+            "Improved water cycle balance"
+        ],
+        "long_term_sustainability": {
+            "climate_resilience_building": "Moderate to High",
+            "community_impact": "Positive demonstration effect",
+            "scalability_potential": "High for similar properties",
+            "water_security_enhancement": "High"
+        },
+        "positive_impacts": {
+            "carbon_footprint_reduction": {
+                "annual_co2_savings_kg": 30.2,
+                "energy_savings": "Reduced pumping for municipal water",
+                "transport_savings": "Eliminated water tanker dependency"
+            },
+            "flood_mitigation": {
+                "erosion_control": "Minimized soil erosion from roof runoff",
+                "runoff_reduction_percent": "60-80%",
+                "urban_flooding_benefit": "Reduced peak flow in storm drains"
+            },
+            "groundwater_recharge": {
+                "annual_recharge_liters": 1510.0,
+                "aquifer_benefit": "Enhanced local groundwater levels",
+                "sustainability_impact": "Reduced pressure on municipal supply"
+            }
+        }
+    },
+    "feasibility_analysis": {
+        "feasibility_level": "Feasible",
+        "max_score": 100,
+        "recommendation": "Good conditions with minor considerations",
+        "score_breakdown": {
+            "rainfall": 20,
+            "roof_area": 5,
+            "soil_suitability": 25,
+            "water_demand": 20
+        },
+        "total_score": 70
+    },
+    "groundwater_and_aquifer": {
+        "aquifer_prospects": "Excellent",
+        "depth_to_groundwater": "10-25 meters",
+        "principal_aquifer_info": {
+            "aquifer_type": "Unconfined to confined multi-layered",
+            "lithology": "Fine to coarse alluvium with clay layers",
+            "principal_aquifer": "Indo-Gangetic Alluvial Aquifer",
+            "recharge_potential": "High - Good connectivity with surface",
+            "sustainability": "Over-exploited to critical",
+            "water_quality": "Fresh to brackish (TDS: 200-1500 mg/L)",
+            "yield_characteristics": "High (20-100 m\u00b3/hr)"
+        },
+        "recharge_potential": "High - Good connectivity with surface"
+    },
+    "harvesting_potential": {
+        "annual_harvestable_liters": 5035.0,
+        "collection_efficiency_achieved": {
+            "efficiency_factors": {
+                "evaporation_loss": "2-5%",
+                "filtration_loss": "5-10%",
+                "first_flush_loss": "5-10%",
+                "gutter_overflow": "5-15%"
+            },
+            "overall_collection_efficiency": 0.68,
+            "roof_material_coefficient": 0.85,
+            "system_efficiency": 0.8
+        },
+        "monthly_potential": {
+            "apr": 186.0,
+            "aug": 1974.0,
+            "dec": 96.0,
+            "feb": 126.0,
+            "jan": 106.0,
+            "jul": 2251.0,
+            "jun": 937.0,
+            "mar": 211.0,
+            "may": 312.0,
+            "nov": 161.0,
+            "oct": 463.0,
+            "sep": 1138.0
+        },
+        "roof_area_sqft": 100,
+        "storage_recommendations": {
+            "maximum_beneficial_liters": 4502,
+            "minimum_liters": 3000,
+            "optimal_liters": 2926
+        }
+    },
+    "implementation_plan": {
+        "critical_success_factors": [
+            "Proper site assessment and soil conditions",
+            "Quality materials and skilled installation",
+            "Adequate filtration for intended use",
+            "Regular maintenance scheduling"
+        ],
+        "project_phases": [
+            {
+                "activities": [
+                    "Detailed site survey and soil testing",
+                    "Structural assessment of roof and foundation",
+                    "Final system design and engineering drawings",
+                    "Permit applications and approvals"
+                ],
+                "deliverables": [
+                    "Technical drawings",
+                    "Material specifications",
+                    "Work permits"
+                ],
+                "duration": "1-2 weeks",
+                "estimated_cost": 40354,
+                "name": "Site Assessment and Design",
+                "phase": 1
+            },
+            {
+                "activities": [
+                    "Purchase tanks, pipes, and filtration equipment",
+                    "Quality inspection of materials",
+                    "Site preparation and temporary arrangements",
+                    "Contractor mobilization"
+                ],
+                "deliverables": [
+                    "Material delivery",
+                    "Site readiness",
+                    "Team deployment"
+                ],
+                "duration": "1 week",
+                "estimated_cost": 26902,
+                "name": "Material Procurement and Preparation",
+                "phase": 2
+            },
+            {
+                "activities": [
+                    "Excavation and foundation work",
+                    "Tank installation and positioning",
+                    "Plumbing network installation",
+                    "Electrical connections and controls"
+                ],
+                "deliverables": [
+                    "Installed storage system",
+                    "Connected plumbing",
+                    "Basic testing"
+                ],
+                "duration": "2-3 weeks",
+                "estimated_cost": 184955,
+                "name": "Primary Installation",
+                "phase": 3
+            },
+            {
+                "activities": [
+                    "Filtration system installation",
+                    "Recharge pit/trench construction",
+                    "Pump and automation setup",
+                    "System integration and calibration"
+                ],
+                "deliverables": [
+                    "Complete filtration setup",
+                    "Recharge structures",
+                    "Automated controls"
+                ],
+                "duration": "1-2 weeks",
+                "estimated_cost": 50442,
+                "name": "Filtration and Recharge Systems",
+                "phase": 4
+            },
+            {
+                "activities": [
+                    "Comprehensive system testing",
+                    "Water quality analysis",
+                    "Performance optimization",
+                    "User training and documentation handover"
+                ],
+                "deliverables": [
+                    "Performance report",
+                    "Quality certificates",
+                    "User manual"
+                ],
+                "duration": "1 week",
+                "estimated_cost": 33628,
+                "name": "Testing and Commissioning",
+                "phase": 5
+            }
+        ],
+        "risk_mitigation": [
+            "Weather contingency planning",
+            "Material quality assurance",
+            "Skilled contractor selection",
+            "Regular progress monitoring"
+        ],
+        "total_duration": "6-8 weeks"
+    },
+    "location": {
+        "address": "Location 28.6139, 77.209",
+        "administrative_info": {
+            "region": "National Capital Territory",
+            "state": "Delhi"
+        },
+        "coordinates": {
+            "lat": 28.6139,
+            "lng": 77.209
+        },
+        "region_type": "urban"
+    },
+    "maintenance_schedule": {
+        "annual_major_maintenance": [
+            "Complete tank cleaning and disinfection",
+            "Professional system audit and optimization",
+            "Pump servicing and electrical safety check",
+            "Structural inspection of all components",
+            "Performance evaluation and upgrade recommendations"
+        ],
+        "cost_estimates": {
+            "annual_major_service": "\u20b98,000-12,000",
+            "quarterly_maintenance": "\u20b91,500-2,500",
+            "routine_monthly_cost": "\u20b9500-800",
+            "total_annual_budget": "\u20b915,000-20,000"
+        },
+        "diy_vs_professional": {
+            "diy_tasks": "Weekly cleaning, basic inspection, filter replacement",
+            "professional_required": "Pump servicing, electrical work, tank cleaning, water testing"
+        },
+        "routine_maintenance": {
+            "monthly_throughout_year": [
+                "Clean mesh filters and leaf guards",
+                "Test pump operation and pressure",
+                "Check pipe joints for leaks",
+                "Inspect storage tank exterior"
+            ],
+            "quarterly_maintenance": [
+                "Replace/clean filter media",
+                "Comprehensive system performance check",
+                "Water quality testing (pH, TDS, bacteria)",
+                "Electrical connections inspection"
+            ],
+            "weekly_during_monsoon": [
+                "Clean gutters and remove debris",
+                "Check first flush diverter operation",
+                "Inspect roof surface for damage",
+                "Monitor water levels and quality"
+            ]
+        }
+    },
+    "performance_monitoring": {
+        "key_performance_indicators": {
+            "system_performance": [
+                "Pump operational hours",
+                "Filter replacement frequency",
+                "Energy consumption",
+                "Maintenance cost per month"
+            ],
+            "water_quality": [
+                "pH levels (6.5-8.5 range)",
+                "Turbidity (< 5 NTU)",
+                "Total dissolved solids",
+                "Bacterial contamination levels"
+            ],
+            "water_quantity": [
+                "Monthly water harvested (liters)",
+                "System efficiency percentage",
+                "Storage utilization rate",
+                "Overflow frequency and volume"
+            ]
+        },
+        "monitoring_schedule": {
+            "annually": [
+                "System upgrade assessment",
+                "Cost-benefit review"
+            ],
+            "daily": [
+                "Visual inspection",
+                "Basic system checks"
+            ],
+            "monthly": [
+                "Performance data analysis",
+                "Preventive maintenance"
+            ],
+            "quarterly": [
+                "Comprehensive system audit",
+                "Water quality testing"
+            ],
+            "weekly": [
+                "Water level monitoring",
+                "Quality assessment"
+            ]
+        },
+        "monitoring_tools": [
+            "Water level sensors with alerts",
+            "Flow meters for harvest measurement",
+            "Basic water quality test kits",
+            "Mobile app for data logging"
+        ],
+        "performance_targets": {
+            "collection_efficiency": ">75% of theoretical potential",
+            "cost_savings": "Achieve projected savings within 10% variance",
+            "system_uptime": ">95% during monsoon season",
+            "water_quality": "Meet IS 10500 standards for intended use"
+        }
+    },
+    "rainfall_data": {
+        "annual_rainfall_mm": 797,
+        "collection_window": {
+            "collection_season_type": "Extended (4+ months)",
+            "optimal_storage_period": "6 months",
+            "primary_collection_months": [
+                "jun",
+                "jul",
+                "aug",
+                "sep"
+            ],
+            "storage_strategy": "Smaller storage with continuous harvesting approach"
+        },
+        "monsoon_characteristics": {
+            "monsoon_concentration_percent": 125.1,
+            "pattern_type": "Monsoon Dominated",
+            "post_monsoon_percent": 14.3,
+            "pre_monsoon_percent": 14.1,
+            "winter_percent": 4.6
+        },
+        "monthly_distribution": {
+            "apr": 3.7,
+            "aug": 39.2,
+            "dec": 1.9,
+            "feb": 2.5,
+            "jan": 2.1,
+            "jul": 44.7,
+            "jun": 18.6,
+            "mar": 4.2,
+            "may": 6.2,
+            "nov": 3.2,
+            "oct": 9.2,
+            "sep": 22.6
+        },
+        "peak_months": [
+            "jul",
+            "aug",
+            "sep"
+        ]
+    },
+    "recharge_structure_designs": {
+        "recharge_pits": {
+            "construction_cost": 30000,
+            "individual_pit_specifications": {
+                "bottom_filling": "60cm gravel (20-40mm) + 30cm coarse sand",
+                "depth": "3.0 meters",
+                "length": "2.0 meters",
+                "side_wall_construction": "Honey-comb brick work or perforated concrete rings",
+                "top_cover": "Perforated concrete slab with inspection chamber",
+                "volume": "12 cubic meters",
+                "width": "2.0 meters"
+            },
+            "maintenance_requirements": [
+                "Annual cleaning of silt accumulation",
+                "Replacement of filter media every 3-5 years",
+                "Quarterly inspection during monsoon"
+            ],
+            "number_recommended": 1,
+            "total_recharge_capacity": "12 cubic meters"
+        },
+        "recharge_trenches": {
+            "construction_cost": 12084.0,
+            "recommended_configuration": "Network of interconnected trenches",
+            "specifications": {
+                "backfill_material": "Graded filter media (gravel + sand + brick aggregate)",
+                "depth": "1.5 meters",
+                "gradient": "1:100 to 1:200 (gentle slope)",
+                "spacing_between_trenches": "5-10 meters",
+                "total_length": "10.1 meters",
+                "width": "0.5 meters"
+            },
+            "suitability": "Ideal for large open areas with gentle slope",
+            "total_capacity": "7.6 cubic meters"
+        }
+    },
+    "regulatory_compliance": {
+        "authority": "Delhi Jal Board and DDA",
+        "available_subsidies": [
+            {
+                "amount": "\u20b915,000",
+                "eligibility": "Residential properties",
+                "scheme": "DJB RTRWH Subsidy"
+            },
+            {
+                "amount": "\u20b95,000",
+                "eligibility": "With solar integration",
+                "scheme": "Delhi Solar Policy"
+            }
+        ],
+        "compliance_timeline": "Must be completed before occupancy certificate",
+        "inspection_requirements": "Pre-monsoon system check mandatory",
+        "local_mandate": "Mandatory for plots >100 sq m under Delhi Building Bye-laws",
+        "penalties": "Water connection may be disconnected for non-compliance",
+        "required_permits": [
+            "Building plan approval",
+            "DJB NoC",
+            "Electrical safety clearance"
+        ],
+        "technical_standards": "As per CPWD guidelines and IS codes"
+    },
+    "runoff_capacity": {
+        "annual_runoff_capacity": {
+            "total_cubic_meters": 9.95,
+            "total_liters": 9950.0
+        },
+        "monthly_runoff_details": {
+            "apr": {
+                "rainfall_mm": 29.5,
+                "runoff_volume_cubic_meters": 0.23,
+                "runoff_volume_liters": 233.0
+            },
+            "aug": {
+                "rainfall_mm": 312.4,
+                "runoff_volume_cubic_meters": 2.47,
+                "runoff_volume_liters": 2467.0
+            },
+            "dec": {
+                "rainfall_mm": 15.1,
+                "runoff_volume_cubic_meters": 0.12,
+                "runoff_volume_liters": 120.0
+            },
+            "feb": {
+                "rainfall_mm": 19.9,
+                "runoff_volume_cubic_meters": 0.16,
+                "runoff_volume_liters": 157.0
+            },
+            "jan": {
+                "rainfall_mm": 16.7,
+                "runoff_volume_cubic_meters": 0.13,
+                "runoff_volume_liters": 132.0
+            },
+            "jul": {
+                "rainfall_mm": 356.3,
+                "runoff_volume_cubic_meters": 2.81,
+                "runoff_volume_liters": 2813.0
+            },
+            "jun": {
+                "rainfall_mm": 148.2,
+                "runoff_volume_cubic_meters": 1.17,
+                "runoff_volume_liters": 1171.0
+            },
+            "mar": {
+                "rainfall_mm": 33.5,
+                "runoff_volume_cubic_meters": 0.26,
+                "runoff_volume_liters": 264.0
+            },
+            "may": {
+                "rainfall_mm": 49.4,
+                "runoff_volume_cubic_meters": 0.39,
+                "runoff_volume_liters": 390.0
+            },
+            "nov": {
+                "rainfall_mm": 25.5,
+                "runoff_volume_cubic_meters": 0.2,
+                "runoff_volume_liters": 201.0
+            },
+            "oct": {
+                "rainfall_mm": 73.3,
+                "runoff_volume_cubic_meters": 0.58,
+                "runoff_volume_liters": 579.0
+            },
+            "sep": {
+                "rainfall_mm": 180.1,
+                "runoff_volume_cubic_meters": 1.42,
+                "runoff_volume_liters": 1422.0
+            }
+        },
+        "peak_runoff": {
+            "estimated_peak_daily_liters": 563.0,
+            "peak_month": "jul",
+            "peak_monthly_liters": 2813.0
+        },
+        "roof_area_sqm": 9.29,
+        "runoff_characteristics": {
+            "collection_efficiency_factor": 0.85,
+            "first_flush_diversion": "2-3mm rainfall (initial runoff to be discarded)",
+            "quality_parameters": "Good for non-potable uses after basic filtration"
+        },
+        "runoff_coefficient": 0.85
+    },
+    "soil_and_geology": {
+        "aquifer_prospects": "Excellent",
+        "groundwater_depth": "10-25 meters",
+        "infiltration_rate": "Medium (5-15 mm/hr)",
+        "recharge_suitability": "Good for both storage and recharge",
+        "recommended_approach": "Balanced approach - combine storage and recharge systems",
+        "soil_type": "Alluvial",
+        "suitability_for_recharge": {
+            "enhancement_options": [
+                "Standard filter media",
+                "Regular de-silting",
+                "Vegetation management"
+            ],
+            "limitations": "May need filter media enhancement",
+            "overall_suitability": "Good",
+            "recommended_methods": [
+                "Recharge trenches",
+                "Modified pits",
+                "Injection wells"
+            ]
+        }
+    },
+    "status": "success",
+    "suggested_structures": {
+        "artificial_recharge": [
+            {
+                "capacity": "7.5 cubic meters",
+                "cost_estimate": 12000,
+                "dimensions": "0.5m wide x 1.5m deep x 10m length",
+                "maintenance": "Quarterly inspection",
+                "suitability": "Medium infiltration soils",
+                "type": "Recharge Trench"
+            },
+            {
+                "capacity": "Direct injection to aquifer",
+                "cost_estimate": 45000,
+                "dimensions": "150mm diameter x 30m depth",
+                "maintenance": "Annual pump testing",
+                "suitability": "Low permeability areas",
+                "type": "Injection Well"
+            }
+        ],
+        "hybrid_systems": [
+            {
+                "advantages": [
+                    "Water security + groundwater enhancement",
+                    "Cost effective"
+                ],
+                "description": "Small storage tank with overflow to recharge pit",
+                "recharge_capacity": "8 cubic meters",
+                "storage_capacity": "5000 liters",
+                "total_cost_estimate": 85000,
+                "type": "Storage + Recharge Combination"
+            }
+        ],
+        "rooftop_harvesting": [
+            {
+                "advantages": [
+                    "Lower installation cost",
+                    "Easy maintenance",
+                    "Gravity feed"
+                ],
+                "capacity_range": "3000-8000 liters",
+                "disadvantages": [
+                    "Space requirement",
+                    "Limited capacity"
+                ],
+                "suitability": "All roof areas",
+                "type": "Overhead Storage Tank"
+            }
+        ]
+    },
+    "system_recommendations": {
+        "alternative_options": [],
+        "customized_suggestions": [],
+        "feasibility_based_advice": {
+            "improvement_suggestions": [
+                "Explore community or neighborhood-level harvesting"
+            ],
+            "key_recommendations": "Good conditions with minor considerations",
+            "score_interpretation": "Feasible"
+        },
+        "primary_recommendation": {
+            "estimated_cost_inr": 269024.8,
+            "expected_performance": "Good water yield for household needs",
+            "filtration_system": "Standard (first flush + sand filter)",
+            "pump_specification": "0.5 HP centrifugal pump",
+            "rationale": "Good conditions with standard implementation approach",
+            "system_type": "Standard RTRWH with Overhead Storage",
+            "tank_capacity_liters": 3000,
+            "tank_material": "Food-grade PVC or polyethylene"
+        }
+    },
+    "timestamp": "2025-09-15T18:30:41.832236"
+}
